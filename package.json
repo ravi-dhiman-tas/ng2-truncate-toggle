@@ -3,9 +3,23 @@
   "version": "0.0.2",
   "license": "MIT",
   "scripts": {
-    "link": "npm link",
-    "git-add": "git add -A",
-    "git-commit-changelog": "git commit -am \"chore(changelog): update\""
+    "link": "npm link"
+  },
+  "main": "index.ts",
+  "author": "Ravi dhiman <ravid7000@gmail.com>",
+  "keywords": [
+    "angular2",
+    "truncate",
+    "truncate toggle",
+    "read more",
+    "read less"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ravid7000/ng2-truncate-toggle"
+  },
+  "bugs": {
+    "url": "https://github.com/ravid7000/ng2-truncate-toggle/issues"
   },
   "dependencies": {
     "@angular/animations": "^4.2.4",
@@ -20,5 +34,12 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Ravi Dhiman",
+      "email": "ravid7000@gmail.com",
+      "url": "https://github.com/ravid7000"
+    }
+  ]
 }
