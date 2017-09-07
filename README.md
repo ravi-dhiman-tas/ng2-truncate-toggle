@@ -1,5 +1,5 @@
 # ng2-truncate-toggle
-- - -
+
 
 ### Installation
 
@@ -22,10 +22,12 @@ imports: [
 ]
 ```
 
+
 ### Usage
 ```typescript
 {{ longString | truncate: 20 }}
 ```
+
 
 #### Truncate with toggle
 ```typescript
