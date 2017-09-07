@@ -37,7 +37,7 @@ import {
     ]
 })
 export class TruncateComponent implements OnInit, OnChanges {
-    private isShown: boolean = false;
+    public isShown: boolean = false;
     @Input('show-less-text') showLessText: string;
     @Input('show-more-text') showMoreText: string;
     @Output() onChange: EventEmitter<boolean> = new EventEmitter();
