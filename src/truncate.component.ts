@@ -16,6 +16,7 @@ import {
                 *ngIf="isShown"
                 (click)="showLess($event)"
                 role="button"
+                href=""
             >
                 {{ showLessText }}
             </a>
@@ -23,6 +24,7 @@ import {
                 *ngIf="!isShown"
                 (click)="showMore($event)"
                 role="button"
+                href=""
             >
                 {{ showMoreText }}
             </a>
@@ -48,20 +50,20 @@ export class TruncateComponent implements OnInit, OnChanges {
         }
     }
     ngOnChanges(changes: SimpleChanges) {
-        console.log(this.showLessText)
         if(changes.hasOwnProperty('showLessText')) {
             this.showLessText = changes.showLessText.currentValue;
         }
-
         if(changes.hasOwnProperty('showMoreText')) {
             this.showMoreText = changes.showMoreText.currentValue;
         }
     }
     showMore(e) {
+        e.preventDefault();
         this.isShown = true;
         this.onChange.emit(true)
     }
     showLess(e) {
+        e.preventDefault();
         this.isShown = false;
         this.onChange.emit(false)
     }
