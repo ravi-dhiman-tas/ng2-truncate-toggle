@@ -1,0 +1,25 @@
+{
+  "name": "ng2-truncate-toggle",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "link": "npm link",
+    "git-add": "git add -A",
+    "git-commit-changelog": "git commit -am \"chore(changelog): update\""
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^4.2.4",
+    "@angular/common": "^4.2.4",
+    "@angular/compiler": "^4.2.4",
+    "@angular/core": "^4.2.4",
+    "@angular/forms": "^4.2.4",
+    "@angular/http": "^4.2.4",
+    "@angular/platform-browser": "^4.2.4",
+    "@angular/platform-browser-dynamic": "^4.2.4",
+    "@angular/router": "^4.2.4",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.4.2",
+    "zone.js": "^0.8.14"
+  }
+}
