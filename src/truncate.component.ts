@@ -1,10 +1,14 @@
 import {
     Component,
+    OnInit,
+    Input,
     Output,
-    EventEmitter
-  } from '@angular/core';
+    OnChanges,
+    EventEmitter,
+    SimpleChanges
+} from '@angular/core';
   
-  @Component({
+@Component({
     selector: 'truncate-controls',
     template: `
         <span>
@@ -13,14 +17,14 @@ import {
                 (click)="showLess($event)"
                 role="button"
             >
-                Show Less
+                {{ showLessText }}
             </a>
             <a
                 *ngIf="!isShown"
                 (click)="showMore($event)"
                 role="button"
             >
-                Show More
+                {{ showMoreText }}
             </a>
         </span>
     `,
@@ -29,10 +33,30 @@ import {
             cursor: pointer;
         }`
     ]
-  })
-  export class TruncateComponent {
+})
+export class TruncateComponent implements OnInit, OnChanges {
     private isShown: boolean = false;
+    @Input('show-less-text') showLessText: string;
+    @Input('show-more-text') showMoreText: string;
     @Output() onChange: EventEmitter<boolean> = new EventEmitter();
+    ngOnInit() {
+        if(!this.showLessText) {
+            this.showLessText = 'Show Less';
+        }
+        if(!this.showMoreText) {
+            this.showMoreText = 'Show More';
+        }
+    }
+    ngOnChanges(changes: SimpleChanges) {
+        console.log(this.showLessText)
+        if(changes.hasOwnProperty('showLessText')) {
+            this.showLessText = changes.showLessText.currentValue;
+        }
+
+        if(changes.hasOwnProperty('showMoreText')) {
+            this.showMoreText = changes.showMoreText.currentValue;
+        }
+    }
     showMore(e) {
         this.isShown = true;
         this.onChange.emit(true)

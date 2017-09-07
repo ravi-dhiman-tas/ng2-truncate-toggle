@@ -33,5 +33,9 @@ imports: [
 ```typescript
 {{ longString | truncate: { maxLength: 20, controls: toggle, elipse: '...' } }}
 
-<truncate-controls (onChange)="toggle = $event"></truncate-controls>
+<truncate-controls
+    (onChange)="toggle = $event"
+    [show-less-text]="'Less'"
+    [show-more-text]="'More'"
+></truncate-controls>
 ```
