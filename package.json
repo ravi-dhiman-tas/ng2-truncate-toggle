@@ -8,11 +8,10 @@
   "main": "index.ts",
   "author": "Ravi dhiman <ravid7000@gmail.com>",
   "keywords": [
-    "angular2",
+    "angular4",
+    "angular",
     "truncate",
-    "truncate toggle",
-    "read more",
-    "read less"
+    "truncate toggle"
   ],
   "repository": {
     "type": "git",

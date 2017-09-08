@@ -29,13 +29,40 @@ imports: [
 ```
 
 
-#### Truncate with toggle
+### Truncate with controls
 ```typescript
-{{ longString | truncate: { maxLength: 20, controls: toggle, elipse: '...' } }}
+<truncate-text
+    [source]="sourceString"
+    [max-length]="100"
+></truncate-text>
+```
 
-<truncate-controls
-    (onChange)="toggle = $event"
+
+### All options for truncate controls
+```typescript
+<truncate-text
     [show-less-text]="'Less'"
     [show-more-text]="'More'"
-></truncate-controls>
+    [source]="sourceString"
+    [max-length]="100"
+    [elipse]="..."
+    [show-controls]="true"
+></truncate-text>
 ```
+
+
+### Event
+```typescript
+<truncate-text
+    (onChange)="callback($event)"
+></truncate-text>
+```
+
+`onChange`: Fires when you toggle text with controls.
+
+
+Thanks for understanding!
+
+### License
+
+The MIT License (see the [LICENSE](https://github.com/ravid7000/ng2-truncate-toggle/blob/master/LICENSE) file for the full text)

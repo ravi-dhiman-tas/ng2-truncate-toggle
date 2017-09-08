@@ -5,10 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 export class TruncatePipe implements PipeTransform {
-    private deepStr: string;
+    private elipse = ' ... ';
     transform(value: any, args?: any): any {
-        let maxLength = 10,
-            elipse = ' ... ';
+        let maxLength = 10;
 
         if(typeof value !== 'string') {
             throw 'Pipe must be use with string.';
@@ -25,16 +24,16 @@ export class TruncatePipe implements PipeTransform {
                 }
             }
             if(args.hasOwnProperty('elipse')) {
-                elipse = args['elipse'];
+                this.elipse = args['elipse'];
             }
             if (args.hasOwnProperty('control')) {
                 if (args['control']) {
                     return value;
                 } else {
-                    return value.substr(0, maxLength) + elipse;
+                    return this.splitSource(value, maxLength);
                 }
             } else {
-                return value.substr(0, maxLength) + elipse;
+                return this.splitSource(value, maxLength);
             }
         } else {
             maxLength = parseInt(args)
@@ -44,8 +43,25 @@ export class TruncatePipe implements PipeTransform {
                     {{ val | truncate: 10 }} or with controls {{ val | truncate: { maxLength: 10, controls: control } }}
                 `;
             }
-            return value.substr(0, maxLength) + elipse;
+            return this.splitSource(value, maxLength);
         }
     }
 
+    compareLength(source: string, len: number) {
+        return source.length > len ? true : false;
+    }
+
+    getSplitLocation(source: string, len: number) {
+        return source.indexOf(' ', len);
+    }
+
+    splitSource(source: string, len: number) {
+        let sl = this.getSplitLocation(source, len);
+
+        if(this.compareLength(source, sl)) {
+            return source.substr(0, sl) + this.elipse;
+        } else {
+            return source;
+        }
+    }
 }
